@@ -31,13 +31,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for station in bus_stations %}
+                {% for station_list in bus_stations %}
                 <tr>
-                    <td>{{ station.Name }}</td>
-                    <td>{{ station.Street }}</td>
-                    <td>{{ station.District }}</td>
+                    {% for station in station_list %}
+                        <td>{{ station }}</td>
+                    {% endfor %}
                 </tr>
-            {% endfor %}
+                {% endfor %}
             </tbody>
         </table>
 
