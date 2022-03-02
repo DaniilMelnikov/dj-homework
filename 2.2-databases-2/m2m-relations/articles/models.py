@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 
 
@@ -12,5 +13,21 @@ class Article(models.Model):
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
 
+
     def __str__(self):
         return self.title
+
+class Tag(models.Model):
+
+    name = models.CharField(max_length=256, verbose_name='Название')
+    scopes = models.ManyToManyField(Article, related_name='scopes', through='Scope')
+
+    def __str__(self):
+        return self.name
+
+class Scope(models.Model):
+
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    is_main = models.BooleanField(default=False)
+
