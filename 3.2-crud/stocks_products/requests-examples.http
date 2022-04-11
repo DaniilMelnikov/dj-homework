@@ -36,7 +36,7 @@ Content-Type: application/json
 ###
 
 # поиск продуктов по названию и описанию
-GET {{baseUrl}}/products/?description=помидор
+GET {{baseUrl}}/products/?search=лучшие
 Content-Type: application/json
 
 ###
@@ -46,7 +46,7 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "  такой: www.ленинград-спб.ru3",
+  "address": " акой: www.ленинград-спб.ru3",
   "positions": [
     {
       "product": 5,
